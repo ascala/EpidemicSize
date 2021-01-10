@@ -1,0 +1,946 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+SIR
+\end_layout
+
+\begin_layout Standard
+SIR equations 
+\begin_inset Formula $\partial_{t}s=-\beta si$
+\end_inset
+
+, 
+\begin_inset Formula $\partial_{t}r=\gamma i$
+\end_inset
+
+ with the conservation law 
+\begin_inset Formula $1=s+i+r$
+\end_inset
+
+; thus the evolution of the epidemics plane follows the law 
+\begin_inset Formula 
+\begin{equation}
+\partial\ln s/\partial r=-\mathcal{R}_{0}\label{eq:main}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{R}_{0}=\beta/\gamma$
+\end_inset
+
+ is the basic reproduction number.
+ Thus, defining 
+\begin_inset Formula $y=\ln s$
+\end_inset
+
+, SIR epidemics have the form 
+\begin_inset Formula 
+\begin{equation}
+y=\ln s_{0}-\mathcal{R}_{0}\left(r-r_{0}\right)\label{eq:straight}
+\end{equation}
+
+\end_inset
+
+.
+ Notice that an epidemics end when eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:straight"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ intersect the boundary curve 
+\begin_inset Formula 
+\begin{equation}
+y_{\Omega}=\ln\left(1-r\right)\label{eq:boundary}
+\end{equation}
+
+\end_inset
+
+corresponding to 
+\begin_inset Formula $r+s=1$
+\end_inset
+
+, 
+\begin_inset Formula $i=0$
+\end_inset
+
+.
+ NOTE: 
+\begin_inset Formula $y_{\Omega}$
+\end_inset
+
+ is the disease-free equilibrium curve (also disease free set: 
+\begin_inset Formula $\Omega=\left\{ \left(s,i,r\right):i=0\land s+r=1\right\} $
+\end_inset
+
+).
+ The initial state of the system at the start of an epidemics is normally
+ supposed to be due to a small number of infected individuals 
+\begin_inset Formula $i_{0}=\epsilon$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $s_{0}=1-\epsilon$
+\end_inset
+
+) that is a vanishing fraction 
+\begin_inset Formula $\epsilon\to0$
+\end_inset
+
+ of the population; thus, a simple epidemics in the 
+\begin_inset Formula $\left(r,y\right)$
+\end_inset
+
+ plane is a straight line starting from the point 
+\begin_inset Formula $P_{0}=\left(y=0,r=0\right)$
+\end_inset
+
+.
+ Since the boundary is concave and its slope in 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+ is 
+\begin_inset Formula $\partial_{r}y_{\Omega}|_{r=0}=-1$
+\end_inset
+
+, the epidemics will start only if there is a non-zero intersection of the
+ straight line eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:straight"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, i.e.
+ if 
+\begin_inset Formula $\mathcal{R}_{0}>1$
+\end_inset
+
+.
+ Notice that 
+\begin_inset Formula $\mathcal{R}_{0}>1$
+\end_inset
+
+ is also the condition for 
+\begin_inset Formula $P_{0}$
+\end_inset
+
+to be unstable; in fact, 
+\begin_inset Formula $\partial_{t}i>0$
+\end_inset
+
+ for 
+\begin_inset Formula $s>\mathcal{R}_{0}^{-1}$
+\end_inset
+
+; since 
+\begin_inset Formula $s<1$
+\end_inset
+
+ c.v.d.
+ 
+\end_layout
+
+\begin_layout Standard
+Notice that we must have 
+\begin_inset Formula $s_{\infty}\left(\mathcal{R}_{0},s_{0}=1\right)<\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ otherwise epidemics would not end: check.
+\end_layout
+
+\begin_layout Standard
+NOTICE: the boundary fixpoint 
+\begin_inset Formula $y'_{\Omega}=-\mathcal{R}_{0}$
+\end_inset
+
+ can be solved and correspond to the boundary point 
+\begin_inset Formula $s=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ separating 
+\begin_inset Formula $\partial_{t}i>0$
+\end_inset
+
+ from 
+\begin_inset Formula $\partial_{t}i<0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+POSSIBLE EXPLANATION: going to the boundaries make every time start from
+ 
+\begin_inset Formula $i=0$
+\end_inset
+
+ ?????
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $i_{max}$
+\end_inset
+
+ line: 
+\begin_inset Formula $s_{max}=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+, so 
+\begin_inset Formula $0<r_{max}<1-\mathcal{R}_{0}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\ln\mathcal{R}_{0}^{-1}=\ln s_{0}-\mathcal{R}_{0}\left(r_{max}-r_{0}\right)$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r_{max}=r_{0}+\mathcal{R}_{0}^{-1}\ln\left(s_{0}\mathcal{R}_{0}\right)
+\]
+
+\end_inset
+
+that can be also written as 
+\begin_inset Formula 
+\[
+r_{max}=r_{0}+s_{max}\ln\left(\frac{s_{0}}{s_{max}}\right)
+\]
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+NOTICE: when moving on the boundary I approach 
+\begin_inset Formula $s_{max}=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $i_{max}$
+\end_inset
+
+ will decrease to zero so will become 
+\begin_inset Quotes eld
+\end_inset
+
+undetectable
+\begin_inset Quotes erd
+\end_inset
+
+.
+ Thus, the dynamics will proceed BEYOND the boundary fixpoint, BUT NOT MUCH.
+\end_layout
+
+\begin_layout Standard
+Possible reading (???): the maximum number of infected is 
+\begin_inset Formula $s_{0}\mathcal{R}_{0}$
+\end_inset
+
+, so 
+\begin_inset Formula $\ln\left(s_{0}\mathcal{R}_{0}\right)$
+\end_inset
+
+ is the number of generations in an exponential growth and the variation
+ in finally infected is # of generations / # of new infected per infected.
+ Or, since 
+\begin_inset Formula $\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ is the time that takes one infected individual to infect 
+\begin_inset Formula $1$
+\end_inset
+
+ person, it is # of generations * time to infect one person (???).
+\end_layout
+
+\begin_layout Section
+Fixpoint
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s\left(r|\mathcal{R}_{0},s_{0},r_{0}\right)=s_{0}\exp\left[-\mathcal{R}_{0}\left(r-r_{0}\right)\right]$
+\end_inset
+
+ or 
+\begin_inset Formula $r\left(s|\mathcal{R}_{0},s_{0},r_{0}\right)=r_{0}+\mathcal{R}_{0}^{-1}\ln\left(s_{0}/s\right)$
+\end_inset
+
+; thus the number of infected at a given initial condition 
+\begin_inset Formula $s\left(t=0\right)=s_{0}-\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $i\left(t=0\right)=\epsilon$
+\end_inset
+
+, 
+\begin_inset Formula $r\left(t=0\right)=1-s_{0}$
+\end_inset
+
+, 
+\begin_inset Formula $\epsilon\to0$
+\end_inset
+
+ with fixed 
+\begin_inset Formula $\mathcal{R}_{0}$
+\end_inset
+
+ is a function 
+\begin_inset Formula $i\left(s|\mathcal{R}_{0},s_{0}\right)=1-s-r\left(s|\mathcal{R}_{0},s_{0}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $s_{\infty}$
+\end_inset
+
+ is the intersection of the evolution 
+\begin_inset Formula $r\left(s|s_{0}\right)$
+\end_inset
+
+ with the boundary 
+\begin_inset Formula $r=1-s$
+\end_inset
+
+, i.e is implicitly defined by the equation 
+\begin_inset Formula $r\left(s_{\infty}|s_{0}\right)=1-s_{\infty}$
+\end_inset
+
+; thus it is a function 
+\begin_inset Formula $s_{\infty}\left(\mathcal{R}_{0},s_{0}\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's suppose that a 
+\begin_inset Formula $SIR$
+\end_inset
+
+ epidemics with basic reproduction number 
+\begin_inset Formula $\mathcal{R}_{0}>1$
+\end_inset
+
+ is controlled via repeated lockdown strategies.
+ For simplicity, each lockdown starts when the number of infected reaches
+ a given threshold 
+\begin_inset Formula $i^{thr}$
+\end_inset
+
+ (i.e.
+ becomes detectable and clearly dangerous) via non-farmacological interventions
+ that reduce by a factor 
+\begin_inset Formula $\alpha<1/\mathcal{R}_{0}$
+\end_inset
+
+ the basic reproduction number, i.e.
+ 
+\begin_inset Formula $\mathcal{R}_{0}^{lock}=\alpha\mathcal{R}_{0}<1$
+\end_inset
+
+ .
+ The iterative map describing such policy is:
+\begin_inset Formula 
+\[
+\left\{ \begin{array}{ccl}
+s_{i+1}^{s} & = & s_{i}^{e}\\
+s_{i+1}^{l} & : & i\left(s_{i+1}^{l}|s_{0}=s_{i+1}^{s}\right)=i^{thr}\\
+s_{i+1}^{e} & = & s_{\infty}\left(\alpha\mathcal{R}_{0},s_{0}=s_{i+1}^{l}\right)
+\end{array}\right.
+\]
+
+\end_inset
+
+with initial condition 
+\begin_inset Formula $s_{0}^{s}=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Notice that even in absence of non-farmaceutical intervention, fear can
+ induce social distancing leading to an effective 
+\begin_inset Formula $\mathcal{R}_{0}^{fear}<\mathcal{R}_{0}$
+\end_inset
+
+ that would eventually lead to a fixpoint lower than 
+\begin_inset Formula $s^{\infty}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Notice that the 
+\begin_inset Quotes eld
+\end_inset
+
+best
+\begin_inset Quotes erd
+\end_inset
+
+ outcome of the fixpoint is 
+\begin_inset Formula $s_{max}=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+, strictly correlated with the quantity 
+\begin_inset Formula $v_{c}=1−\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ called the critical vaccination coverage.
+ Its interpretation is that if at least the fraction 
+\begin_inset Formula $v_{c}$
+\end_inset
+
+ is vaccinated, then the whole community is protected from major outbreaks.
+ The community is then said to have herd immunity.
+ NOTICE THAT THIS IS TRUE ALSO FOR STOCHASTIC MODELS.
+\end_layout
+
+\begin_layout Section
+Lockdown and stability of the boundary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{0}=\left(r_{0},s_{0}=1-r_{0}\right)$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y_{\Omega}\left(r+\delta\right)=y_{\Omega}+y'_{\Omega}\delta+\left(y'_{\Omega}\delta\right)^{2}/2+\mathcal{O}\left(\delta^{3}\right)$
+\end_inset
+
+, 
+\begin_inset Formula $y\left(r+\delta\right)=y-\mathcal{R}_{0}\delta$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Solving 
+\begin_inset Formula $y(r+\delta)=y_{\Omega}\left(r+\delta\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $y(r)=y_{\Omega}\left(r\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $y'_{\Omega}\delta+\left(y'_{\Omega}\delta\right)^{2}/2=-\mathcal{R}_{0}\delta$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\delta=-\left(y'_{\Omega}+\mathcal{R}_{0}\right)/\left(y'_{\Omega}\right)^{2}>0$
+\end_inset
+
+ for 
+\begin_inset Formula $\mathcal{R}_{0}>-y'_{\Omega}=\left(1-r_{0}\right)^{-1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $P_{\epsilon}=P_{0}+\left(0,-\epsilon\right)$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $y=y_{\Omega}-\epsilon$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Solving 
+\begin_inset Formula $y(r+\delta)=y_{\Omega}\left(r+\delta\right)$
+\end_inset
+
+ with 
+\begin_inset Formula $y(r)=y_{\Omega}\left(r\right)$
+\end_inset
+
+ we have 
+\begin_inset Formula $\left(y'_{\Omega}\right)^{2}\delta^{2}/2+\left(y'_{\Omega}+\mathcal{R}_{0}\right)\delta-\epsilon=0$
+\end_inset
+
+.
+ In the special case 
+\begin_inset Formula $y'_{\Omega}+\mathcal{R}_{0}=0$
+\end_inset
+
+ (i.e.
+ at the fixpoint!!!), we have to solve just 
+\begin_inset Formula $\left(y'_{\Omega}\right)^{2}\delta^{2}/2-\epsilon=0$
+\end_inset
+
+ so that 
+\begin_inset Formula $\delta\propto\sqrt{\epsilon}$
+\end_inset
+
+.
+ BEFORE the fixpoint, we are in the case 
+\begin_inset Formula $y'_{\Omega}+\mathcal{R}_{0}>0$
+\end_inset
+
+.
+ Thus, the only positive root can be
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta=\frac{-\left(y'_{\Omega}+\mathcal{R}_{0}\right)+\sqrt{\left(y'_{\Omega}+\mathcal{R}_{0}\right)^{2}+2\epsilon\left(y'_{\Omega}\right)^{2}}}{\left(y'_{\Omega}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta=\frac{y'_{\Omega}+\mathcal{R}_{0}}{\left(y'_{\Omega}\right)^{2}}\left(-1+\sqrt{1+2\epsilon\left(\frac{y'_{\Omega}}{y'_{\Omega}+\mathcal{R}_{0}}\right)^{2}}\right)
+\]
+
+\end_inset
+
+.
+ If we are far away 
+\begin_inset Formula $y'_{\Omega}+\mathcal{R}_{0}=0$
+\end_inset
+
+, we can use 
+\begin_inset Formula $\sqrt{1+x}\approx1+x/2$
+\end_inset
+
+ to derive the approximation 
+\begin_inset Formula 
+\[
+\delta\approx\frac{\epsilon}{y'_{\Omega}+\mathcal{R}_{0}}
+\]
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+AFTER the fixpoint, we are in the case 
+\begin_inset Formula $y'_{\Omega}+\mathcal{R}_{0}<0$
+\end_inset
+
+ so we have to solve for the 
+\emph on
+least
+\emph default
+ root
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta=\frac{-\left(y'_{\Omega}+\mathcal{R}_{0}\right)-\sqrt{\left(y'_{\Omega}+\mathcal{R}_{0}\right)^{2}+2\epsilon\left(y'_{\Omega}\right)^{2}}}{\left(y'_{\Omega}\right)^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta=\frac{-\left(y'_{\Omega}+\mathcal{R}_{0}\right)}{\left(y'_{\Omega}\right)^{2}}\left(1+\sqrt{1+2\epsilon\left(\frac{y'_{\Omega}}{y'_{\Omega}+\mathcal{R}_{0}}\right)^{2}}\right)
+\]
+
+\end_inset
+
+.
+ If we are far away 
+\begin_inset Formula $y'_{\Omega}+\mathcal{R}_{0}=0$
+\end_inset
+
+, we can use 
+\begin_inset Formula $\sqrt{1+x}\approx1+x/2$
+\end_inset
+
+ to derive the approximation 
+\begin_inset Formula 
+\[
+\delta\approx\frac{-\left(y'_{\Omega}+\mathcal{R}_{0}\right)}{\left(y'_{\Omega}\right)^{2}}\left[2+\epsilon\left(\frac{y'_{\Omega}}{y'_{\Omega}+\mathcal{R}_{0}}\right)^{2}\right]
+\]
+
+\end_inset
+
+????? .
+ It would be more reasonable to have for both sides the approx
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\delta\approx\left\{ \begin{array}{lcc}
+\frac{\epsilon}{\left|y'_{\Omega}+\mathcal{R}_{0}\right|} & \textrm{for} & \left|y'_{\Omega}+\mathcal{R}_{0}\right|\gg\epsilon\\
+\frac{\sqrt{2\epsilon}}{\left|y'_{\Omega}\right|} & \textrm{for} & \left|y'_{\Omega}+\mathcal{R}_{0}\right|\approx\epsilon
+\end{array}\right.
+\]
+
+\end_inset
+
+that is symmetric and nice ....
+\end_layout
+
+\begin_layout Section
+SEIR
+\end_layout
+
+\begin_layout Standard
+For the 
+\begin_inset Formula $SEIR$
+\end_inset
+
+ model 
+\begin_inset Formula 
+\[
+\begin{array}{lcl}
+\partial_{t}S & = & -\beta SI\\
+\partial_{t}E & = & \beta SI-\rho E\\
+\partial_{t}I & = & \rho E-\gamma I\\
+\partial_{t}R & = & \gamma I
+\end{array}
+\]
+
+\end_inset
+
+we still have 
+\begin_inset Formula $d\ln=-\mathcal{R}_{0}dR$
+\end_inset
+
+ so in the 
+\begin_inset Formula $\left(y,r\right)$
+\end_inset
+
+ plane the trajectories are straight line like in the 
+\begin_inset Formula $SIR$
+\end_inset
+
+ model and the boundary 
+\begin_inset Formula $y_{\Omega}(r)$
+\end_inset
+
+ is also the same; thus, the analysis proceeds on same ground.
+ At difference with 
+\begin_inset Formula $SIR$
+\end_inset
+
+, at the line 
+\begin_inset Formula $s^{*}=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ we have the maximum of 
+\begin_inset Formula $i+e$
+\end_inset
+
+; CHECK: the maxima of 
+\begin_inset Formula $e$
+\end_inset
+
+ must happen for 
+\begin_inset Formula $s>s^{*}$
+\end_inset
+
+ (earlier in time) while the maxima of 
+\begin_inset Formula $i$
+\end_inset
+
+ must happen for 
+\begin_inset Formula $s<s^{*}$
+\end_inset
+
+ (later in time).
+\end_layout
+
+\begin_layout Section
+Notes
+\end_layout
+
+\begin_layout Standard
+Up to now, final size of the epidemic has taken into account 
+\end_layout
+
+\begin_layout Itemize
+etherogeneous population
+\end_layout
+
+\begin_layout Itemize
+periods of different infectiveness
+\end_layout
+
+\begin_layout Itemize
+partial immunization by previous diseases 
+\end_layout
+
+\begin_layout Itemize
+pharmacological interventions
+\end_layout
+
+\begin_layout Standard
+....
+ the effect of an epidemic of a pathogen inducing partial immunity on the
+ possibility and size of a future epidemic.
+ In the latter case, we prove a surprising 
+\begin_inset Formula $50\%$
+\end_inset
+
+ law: if infection by a pathogen induces a partial immunity reducing susceptibil
+ity by less than 
+\begin_inset Formula $50\%$
+\end_inset
+
+, then, whatever the value of 
+\begin_inset Formula $R_{0}>1$
+\end_inset
+
+ before the first epidemic, a second epidemic will occur, while if susceptibilit
+y is reduced by more than 
+\begin_inset Formula $50\%$
+\end_inset
+
+, then a second epidemic will only occur if 
+\begin_inset Formula $R_{0}$
+\end_inset
+
+ is larger than a certain critical value greater than 
+\begin_inset Formula $1$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Katriel2012size"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ma introduces the 
+\begin_inset Formula $SI^{n}R$
+\end_inset
+
+ model 
+\begin_inset Formula 
+\[
+\begin{array}{lcl}
+\partial_{t}S & = & -S\sum\beta_{i}I_{i}\\
+\partial_{t}I_{1} & = & S\sum\beta_{i}I_{i}-\gamma_{1}I_{1}\\
+\partial_{t}I_{i+1} & = & \gamma_{i}I_{i}-\gamma_{i+1}I_{i+1}\\
+\partial_{t}R & = & \gamma_{n}I_{n}
+\end{array}
+\]
+
+\end_inset
+
+(note: 
+\begin_inset Formula $SEIR$
+\end_inset
+
+ is a 
+\begin_inset Formula $SI^{2}N$
+\end_inset
+
+ model where the 
+\begin_inset Formula $1^{st}$
+\end_inset
+
+ stage is not infective) and shows that latent periods do not change the
+ final formula for the attack ratio [Ma2006].
+\end_layout
+
+\begin_layout Standard
+Miller derives an analytical formula for the final size for an epidemics
+ with two infectious periods with different infectiousness 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Miller2012note"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To consider behavioral response to an outbreak of a severe disease, Brauer
+ analyses the final size when the contact rate that decreases in time, 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Brauer2019final"
+literal "false"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In [Arino2007], 
+\begin_inset Formula $\mathcal{R}_{0}$
+\end_inset
+
+ is calculated for points starting on the disease-free set 
+\begin_inset Formula $\left(\vec{s},0,\vec{r}\right)$
+\end_inset
+
+; also, they show for a SARS model that includes quarantine and isolation
+ arranged prior to the beginning of the epidemic, that the attack ratio
+ depends on the control reproduction number, denoted by 
+\begin_inset Formula $\mathcal{R}_{C}$
+\end_inset
+
+ [9] rather than the basic reproduction number 
+\begin_inset Formula $\mathcal{R}_{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+[9] A.
+ Gumel, S.
+ Ruan, T.
+ Day, J.
+ Watmough, F.
+ Brauer, P.
+ van den Driessche, D.
+ Gabrielson, C.
+ Bowman, M.E.
+ Alexander, S.
+ Ardal, J.
+ Wu, & B.M.
+ Sahai, Modelling strategies for controlling SARS outbreaks, Proc.
+ Roy.
+ Soc.
+ London B 271, 2223–2232 (2004).
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "EpidemicSize"
+options "plain"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
