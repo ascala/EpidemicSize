@@ -112,7 +112,7 @@ where
 , SIR epidemics have the form 
 \begin_inset Formula 
 \begin{equation}
-y=\ln s_{0}-\mathcal{R}_{0}\left(r-r_{0}\right)\label{eq:straight}
+y_{E}=\ln s_{0}-\mathcal{R}_{0}\left(r-r_{0}\right)\label{eq:straight}
 \end{equation}
 
 \end_inset
@@ -228,10 +228,158 @@ to be unstable; in fact,
 
 \begin_layout Standard
 Notice that we must have 
-\begin_inset Formula $s_{\infty}\left(\mathcal{R}_{0},s_{0}=1\right)<\mathcal{R}_{0}^{-1}$
+\begin_inset Formula $s_{\infty}\left(\mathcal{R}_{0},s_{0}=1\right)>\mathcal{R}_{0}^{-1}$
 \end_inset
 
- otherwise epidemics would not end: check.
+ otherwise epidemics would not end.
+\end_layout
+
+\begin_layout Standard
+This can be easily shown considering the distance among the the evolution
+ 
+\begin_inset Formula $y_{E}$
+\end_inset
+
+ of the dynamics and the boundary 
+\begin_inset Formula $y_{\Omega}$
+\end_inset
+
+.
+ These two curves meet at 
+\begin_inset Formula $r=0$
+\end_inset
+
+ and 
+\begin_inset Formula $r=r_{\infty}=1-s_{\infty}$
+\end_inset
+
+.
+ At the beginning, the distance will grow since 
+\begin_inset Formula $\mathcal{R}_{0}>\partial_{s}y_{\Omega}\left(r=0\right)$
+\end_inset
+
+; the distance will stop growing at the point 
+\begin_inset Formula $r^{*}$
+\end_inset
+
+where the slope of the curve is 
+\begin_inset Formula $\partial_{s}y_{\Omega}\left(r^{*}\right)=\mathcal{R}_{0}$
+\end_inset
+
+ and will then start decreasing (remember that 
+\begin_inset Formula $y_{\Omega}$
+\end_inset
+
+ is concave, so 
+\begin_inset Formula $\partial_{s}y_{\Omega}$
+\end_inset
+
+ is monotonically increasing); thus, 
+\begin_inset Formula $y_{E}$
+\end_inset
+
+ will meet 
+\begin_inset Formula $y_{\Omega}$
+\end_inset
+
+at a point where 
+\begin_inset Formula $\partial_{s}y_{\Omega}>\mathcal{R}_{0}$
+\end_inset
+
+.
+ Notice that 
+\begin_inset Formula $\partial_{s}y_{\Omega}\left(r^{*}\right)=\mathcal{R}_{0}$
+\end_inset
+
+ yelds 
+\begin_inset Formula $s^{*}=\mathcal{R}_{0}^{-1}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $r^{*}=r_{\infty}$
+\end_inset
+
+!!!
+\end_layout
+
+\begin_layout Standard
+THUS, INTRODUCING LOCKDOWNS FORCES THE COMPLEX DYNAMICS TO 
+\begin_inset Quotes eld
+\end_inset
+
+LAND
+\begin_inset Quotes erd
+\end_inset
+
+ IN THE INTERVAL 
+\begin_inset Formula $\left[1-\mathcal{R}_{0}^{-1},r_{\infty}\right]$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $\mathcal{R}_{0}$
+\end_inset
+
+, corresponds to 
+\begin_inset Formula $\left[0.66,0.94\right],$
+\end_inset
+
+i.e.
+ from 
+\begin_inset Formula $66\%$
+\end_inset
+
+ of the population to 
+\begin_inset Formula $94\%$
+\end_inset
+
+ of the population.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename untitled.jpg
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -488,6 +636,45 @@ best
  is vaccinated, then the whole community is protected from major outbreaks.
  The community is then said to have herd immunity.
  NOTICE THAT THIS IS TRUE ALSO FOR STOCHASTIC MODELS.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename untitled2.jpg
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -761,6 +948,91 @@ we still have
 \end_inset
 
  (later in time).
+\end_layout
+
+\begin_layout Section
+Security thresholds
+\end_layout
+
+\begin_layout Standard
+To avoid overwhelming the emergency care units of national health services
+ (NHSs), it is important to avoid that the number of infectious goes beyond
+ a given threshold 
+\begin_inset Formula $\theta$
+\end_inset
+
+.
+ In the 
+\begin_inset Formula $r-s$
+\end_inset
+
+ plane, this corresponds to the straight lines 
+\begin_inset Formula $s=\left(1-\theta\right)-r$
+\end_inset
+
+ that are parallel to the boundary 
+\begin_inset Formula $s=1-r$
+\end_inset
+
+.
+ Thus, we can define the boundary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+y^{\theta}=\log\left(1-\theta-r\right)
+\]
+
+\end_inset
+
+.
+ Thus, to avoid overwhelming a NHS, lockdown strategies have to constrain
+ the dynamic in the region 
+\begin_inset Formula $y^{\theta}\leq y\leq y^{\Omega}$
+\end_inset
+
+.
+ Notice that for the 
+\begin_inset Formula $SEIR$
+\end_inset
+
+ model this is an upper bound, since 
+\begin_inset Formula $1-s-r=i+e\leq i$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename untitled3.jpg
+	lyxscale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
