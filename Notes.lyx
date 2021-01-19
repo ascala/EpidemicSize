@@ -350,7 +350,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename untitled.jpg
+	filename phaseplane.jpg
 	lyxscale 50
 
 \end_inset
@@ -651,7 +651,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename untitled2.jpg
+	filename fixpoint.jpg
 	lyxscale 50
 
 \end_inset
@@ -1013,7 +1013,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename untitled3.jpg
+	filename fixpoint.jpg
 	lyxscale 50
 
 \end_inset
