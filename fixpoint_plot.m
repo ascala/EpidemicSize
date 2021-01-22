@@ -1,5 +1,5 @@
 clear all;
-R0=3; RL=0.5;
+R0=3; RL=R0*(1-0.82);
 r=1e-4:1e-2:1-1e-4;
 
 % find the standard size of epidemics

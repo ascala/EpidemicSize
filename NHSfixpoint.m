@@ -1,6 +1,6 @@
-clear all; % close all
+%clear all; % close all
 
-R0=3; RL=0.7;
+R0=3; RL=0.54;
 r=1e-4:1e-2:1-1e-4;
 
 % find the standard size of epidemics
@@ -24,19 +24,19 @@ while r0<rstar
 end
 sl=exp(yl);
 
-figure(1); hold on;
-plot(rl, exp(yl),'g','LineWidth',1); hold on; 
+%figure(1); hold on;
+plot(rl, exp(yl),'c','LineWidth',1); hold on; 
 
 istar=find(r>=rstar,1);
-plot(r(1:istar),1-r(1:istar),'r','LineWidth',2); % s+r=1 unstable boundary 
-plot(r(istar:end),1-r(istar:end),'b','LineWidth',2); % s+r=1 stable boundary 
+%plot(r(1:istar),1-r(1:istar),'r','LineWidth',2); % s+r=1 unstable boundary 
+%plot(r(istar:end),1-r(istar:end),'b','LineWidth',2); % s+r=1 stable boundary 
 
-ir=find(r>1-thresh,1)-1;
-plot(r(1:ir),1-thresh-r(1:ir),'r','LineWidth',1); % s+r=1-thresh boundary 
+%ir=find(r>1-thresh,1)-1;
+%plot(r(1:ir),1-thresh-r(1:ir),'r','LineWidth',1); % s+r=1-thresh boundary 
 
 %plot(rstar,sstar,'ok')
 %plot(rl(end),sl(end),'k*','LineWidth',2)
 
-xlim([0 0.85]); ylim([0.19 1]);
-xlabel('r'); ylabel('s'); set(get(gca,'ylabel'),'rotation',0)
-set(gca, 'YScale', 'log')
+%xlim([0 0.85]); ylim([0.19 1]);
+%xlabel('r'); ylabel('s'); set(get(gca,'ylabel'),'rotation',0)
+%set(gca, 'YScale', 'log')
