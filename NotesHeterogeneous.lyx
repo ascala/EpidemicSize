@@ -1,0 +1,1231 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Section
+SIR
+\end_layout
+
+\begin_layout Standard
+Let's consider 
+\begin_inset Formula $n$
+\end_inset
+
+ classes (example: age) of individuals and let 
+\begin_inset Formula $s_{k}$
+\end_inset
+
+,
+\begin_inset Formula $i_{k}$
+\end_inset
+
+,
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ be the fraction of susceptibles, infectious and recovered individuals in
+ the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ class.
+ The SIR equations for such an heterogeneous population are:
+\begin_inset Formula 
+\begin{equation}
+\begin{array}{c}
+\partial_{t}s_{k}=-s_{k}\sum_{l}\beta_{kl}i_{l}\\
+\partial_{t}i_{k}=i_{k}\sum_{l}\beta_{kl}s_{l}-\gamma_{k}i_{k}\\
+\partial_{t}r_{k}=\gamma_{k}i_{k}
+\end{array}\label{eq:sir}
+\end{equation}
+
+\end_inset
+
+with the conservation law 
+\begin_inset Formula $1=s_{k}+i_{k}+r_{k}$
+\end_inset
+
+ (i.e., we are confined in the simplex 
+\begin_inset Formula $\boldsymbol{s}\geq0$
+\end_inset
+
+,
+\begin_inset Formula $\boldsymbol{r}\geq0$
+\end_inset
+
+,
+\begin_inset Formula $\boldsymbol{s}+\boldsymbol{r}\leq\boldsymbol{1}$
+\end_inset
+
+).
+ Conservation comes from the fact that 
+\begin_inset Formula $\partial_{t}\sum_{k}\left(s_{k}+i_{k}+r_{k}\right)=0$
+\end_inset
+
+.
+ Using 
+\begin_inset Formula $i_{k}=\gamma_{k}^{-1}\partial_{t}r_{k}$
+\end_inset
+
+, the evolution of the epidemics plane follows the law 
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}\ln s_{k}=-\sum_{l}\beta_{kl}\gamma_{l}^{-1}\partial_{t}r_{l}\label{eq:main}
+\end{equation}
+
+\end_inset
+
+i.e.
+ (in vector form) 
+\begin_inset Formula $\partial_{t}\ln s=-\mathcal{R}\partial_{t}r$
+\end_inset
+
+ where the matrix 
+\begin_inset Formula $\mathcal{R}=\textrm{diag}(\gamma)^{-1}\beta$
+\end_inset
+
+ is the basic reproduction number matrix.
+ Thus, defining 
+\begin_inset Formula $y=\ln s$
+\end_inset
+
+, SIR epidemics have the form 
+\begin_inset Formula 
+\begin{equation}
+y^{SIR}=\ln s_{0}-\mathcal{R}\left(r-r_{0}\right)\label{eq:straight}
+\end{equation}
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+An epidemic ends when 
+\begin_inset Formula $\boldsymbol{i}=0$
+\end_inset
+
+, i.e.
+ on the hyper-surface 
+\begin_inset Formula $\boldsymbol{s}+\boldsymbol{r}=\boldsymbol{1}$
+\end_inset
+
+; in fact on these point 
+\begin_inset Formula $\partial_{t}\boldsymbol{s}=\partial_{t}\boldsymbol{r}=\boldsymbol{0}$
+\end_inset
+
+ (eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:sir"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+).
+ In the 
+\begin_inset Formula $r-y$
+\end_inset
+
+ plane, these points define the boundary 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ (also called the disease-free set) defined by the concave, monotonously
+ decreasing function (also called the disease-free equilibrium curve)
+\begin_inset Formula 
+\begin{equation}
+y^{\Omega}=\ln\left(1-r\right)\label{eq:boundary}
+\end{equation}
+
+\end_inset
+
+; thus, the end of an epidemic corresponds to the rightmost intersection
+ 
+\begin_inset Formula $P^{\infty}$
+\end_inset
+
+ of eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:straight"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:boundary"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ In general, 
+\begin_inset Formula $P^{\infty}$
+\end_inset
+
+ will depend from the initial values of 
+\begin_inset Formula $r_{0}$
+\end_inset
+
+,
+\begin_inset Formula $s_{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+To define stability, let's consider the total fraction of infected 
+\begin_inset Formula $i=\sum_{k}i_{k}$
+\end_inset
+
+; a boundary point 
+\begin_inset Formula $P$
+\end_inset
+
+ is stable if 
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}i=\sum_{k}\gamma_{k}i_{k}\left(\sum_{l}\mathcal{R}_{kl}s_{l}-1\right)<0\label{eq:i_decreases}
+\end{equation}
+
+\end_inset
+
+i.e.
+ 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}<\boldsymbol{1}$
+\end_inset
+
+.
+ Notice that, since 
+\begin_inset Formula $\Omega$
+\end_inset
+
+ is strictly concave, 
+\begin_inset Formula $\left.\partial_{t}i\right|_{P^{\infty}}=0$
+\end_inset
+
+ as expected.
+ A particular case is the 
+\begin_inset Quotes eld
+\end_inset
+
+initial
+\begin_inset Quotes erd
+\end_inset
+
+ epidemics, i.e.
+ the one starting from 
+\begin_inset Formula $r_{0}=0$
+\end_inset
+
+, 
+\begin_inset Formula $i_{0}\to0$
+\end_inset
+
+ (i.e.
+ 
+\begin_inset Formula $s_{0}\to1$
+\end_inset
+
+, 
+\begin_inset Formula $y_{0}\to0$
+\end_inset
+
+).
+ In this point 
+\begin_inset Formula $s_{l}\sim1$
+\end_inset
+
+ and 
+\begin_inset Formula $\partial_{t}i\sim\sum_{k}\gamma_{k}i_{k}\left(\sum_{l}\mathcal{R}_{kl}-1\right)$
+\end_inset
+
+ that is stable (
+\begin_inset Formula $<0$
+\end_inset
+
+) if 
+\begin_inset Formula $\sum_{l}\mathcal{R}_{kl}<1$
+\end_inset
+
+; this is a generalization of the 
+\begin_inset Formula $1d$
+\end_inset
+
+ case where the critical value for an epidemic to start is 
+\begin_inset Formula $R>1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's consider a boundary point 
+\begin_inset Formula $P^{\Omega}=(\boldsymbol{s}^{\Omega},\boldsymbol{r}^{\Omega})$
+\end_inset
+
+ with 
+\begin_inset Formula $R\boldsymbol{s}^{\Omega}<\boldsymbol{1}$
+\end_inset
+
+; this point is stable against any perturbation 
+\begin_inset Formula $0<i_{l}<$
+\end_inset
+
+ 
+\begin_inset Formula $1-\sum_{l}\mathcal{R}_{kl}s_{l}^{\Omega}$
+\end_inset
+
+ (see eq.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:i_decreases"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+), since in this boundary (that is non empty if 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ is an invertible matrix) is non empty (essentially, I need that 
+\begin_inset Formula $\sum_{l}\mathcal{R}_{kl}s_{l}^{\Omega}>0$
+\end_inset
+
+ strictly).
+\end_layout
+
+\begin_layout Standard
+Thus, I can define the frontier 
+\begin_inset Formula $\omega\subset\Omega$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\omega=\left\{ P\in\Omega:R\boldsymbol{s}^{\Omega}=\boldsymbol{1}\right\} 
+\]
+
+\end_inset
+
+separating the unstable set 
+\begin_inset Formula $\Omega^{u}$
+\end_inset
+
+ where 
+\begin_inset Formula $R\boldsymbol{s}>\boldsymbol{1}$
+\end_inset
+
+ from the stable set 
+\begin_inset Formula $\Omega^{s}$
+\end_inset
+
+.
+ The set 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is the 
+\begin_inset Formula $d$
+\end_inset
+
+-dimensional equivalent of the herd immunity threshold.
+\end_layout
+
+\begin_layout Section
+Vaccines
+\end_layout
+
+\begin_layout Standard
+In SIR, recovered individuals are considered immune.
+ Thus, a vaccination policy consists in moving a population from a point
+ 
+\begin_inset Formula $(\boldsymbol{s}_{0},\boldsymbol{r}_{0})$
+\end_inset
+
+ (tipically/hopefully 
+\begin_inset Formula $s_{k}=1$
+\end_inset
+
+, 
+\begin_inset Formula $r_{k}=0$
+\end_inset
+
+) to a point 
+\begin_inset Formula $(\boldsymbol{s}_{\Omega},\boldsymbol{r}_{\Omega})\in\Omega^{s}$
+\end_inset
+
+.
+ A minimal vaccination policy is a point belonging to 
+\begin_inset Formula $\omega$
+\end_inset
+
+.
+ Since an epidemic can have different impacts on the various classes (i.e.
+ mortality rates per age classes), one can consider the advantage of having
+ a fraction 
+\begin_inset Formula $r_{k}$
+\end_inset
+
+ of recovered individuals in the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ class generated through the vaccine and not through having been infected.
+ Let's assume that we start vaccination from a point 
+\begin_inset Formula $P_{0}=(\boldsymbol{s}_{0},\boldsymbol{r}_{0})$
+\end_inset
+
+.
+ This means that we have 
+\begin_inset Formula $\boldsymbol{i}_{0}=\boldsymbol{1}-\boldsymbol{r}_{0}-\boldsymbol{s}_{0}$
+\end_inset
+
+ infectious individuals; let's suppose we can vaccine only sane individuals,
+ i.e.
+ a fraction 
+\begin_inset Formula $\boldsymbol{r}_{V}<\boldsymbol{s}_{0}$
+\end_inset
+
+.
+ if we 
+\begin_inset Quotes eld
+\end_inset
+
+land
+\begin_inset Quotes erd
+\end_inset
+
+ on a stable point of 
+\begin_inset Formula $\Omega$
+\end_inset
+
+, we will end up with 
+\begin_inset Formula $\boldsymbol{r}_{SIR}=1-\boldsymbol{s}_{0}$
+\end_inset
+
+ recovered individuals (the 
+\begin_inset Formula $\boldsymbol{r}_{0}$
+\end_inset
+
+ initial ones plus the 
+\begin_inset Formula $\boldsymbol{i}_{0}$
+\end_inset
+
+ that were infected ) and 
+\begin_inset Formula $\boldsymbol{r}_{V}$
+\end_inset
+
+ vaccined individuals, i.e.
+ 
+\begin_inset Formula $\boldsymbol{r}_{\Omega}=\boldsymbol{r}_{V}+\boldsymbol{r}_{SIR}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Let's try a simple example: let 
+\begin_inset Formula $\mu_{k}$
+\end_inset
+
+ be the mortality rate in the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ class and suppose that vaccination has an irrelevant cost.
+ Thus, a best policy 
+\begin_inset Formula $\boldsymbol{r}_{V}$
+\end_inset
+
+ would be one that optimezes the problem
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\min\boldsymbol{\mu}\cdot\boldsymbol{r}\\
+\textrm{s.t. }\boldsymbol{r}+\boldsymbol{1}-\boldsymbol{s}_{0}\in\omega
+\end{array}
+\]
+
+\end_inset
+
+that, since 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is convex and bounded (it is the intersection of a linear constrain with
+ a strictly convex surface), has a unique solution (check, this is an ansatz
+ !!!).
+\end_layout
+
+\begin_layout Standard
+Another simple example: let's consider a vaccination policy with cost 
+\begin_inset Formula $c_{V}\left(\boldsymbol{r}\right)$
+\end_inset
+
+.
+ The best policy would be the 
+\begin_inset Formula $\boldsymbol{r}_{V}$
+\end_inset
+
+ that minimizes the problem:
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\min c_{V}\left(\boldsymbol{r}\right)\\
+\textrm{s.t. }\boldsymbol{r}+\boldsymbol{1}-\boldsymbol{s}_{0}\in\omega
+\end{array}
+\]
+
+\end_inset
+
+that is a generalization of the previous and, if 
+\begin_inset Formula $\omega$
+\end_inset
+
+ is convex and bounded, would have a unique solution again if 
+\begin_inset Formula $c$
+\end_inset
+
+ is monotonic.
+\end_layout
+
+\begin_layout Standard
+A more complex optimization problem would be the case where I have a limited
+ amount 
+\begin_inset Formula $M$
+\end_inset
+
+ of vaccine, so that I can vaccine part of the population and let the other
+ part get the infection.
+ Let 
+\begin_inset Formula $d(\boldsymbol{r})$
+\end_inset
+
+ the damage to the national health system given by a fraction 
+\begin_inset Formula $\boldsymbol{r}$
+\end_inset
+
+ of the population being infected.
+ Under such circumstances, the optimal 
+\begin_inset Formula $\boldsymbol{r}_{V}$
+\end_inset
+
+ solves the problem
+\begin_inset Formula 
+\[
+\min c_{V}\left(\boldsymbol{r}\right)+d\left(\boldsymbol{r}_{\infty}\left(\boldsymbol{r}+\boldsymbol{r}_{0}\right)\right)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\boldsymbol{r}_{\infty}\left(\boldsymbol{r}+\boldsymbol{r}_{0}\right)$
+\end_inset
+
+ is the intersection of eq.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:straight"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ with initial conditions 
+\begin_inset Formula $\left(\boldsymbol{r}_{0}+\boldsymbol{r},\boldsymbol{s}_{0}\right)$
+\end_inset
+
+ to the boundary.
+ Here I have relaxed the condition 
+\begin_inset Formula $\boldsymbol{r}\in\omega$
+\end_inset
+
+ since 
+\begin_inset Formula $\boldsymbol{r}_{\infty}$
+\end_inset
+
+ cannot be not obliged to belong to 
+\begin_inset Formula $\omega$
+\end_inset
+
+ but surely belongs by construction to 
+\begin_inset Formula $\Omega^{s}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Majorants and minorants in n dimensions
+\end_layout
+
+\begin_layout Standard
+The point 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}^{*}=\boldsymbol{1}$
+\end_inset
+
+is the separating point between stable and unstable points.
+ 
+\end_layout
+
+\begin_layout Standard
+To the matrix 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ we can associate the 
+\begin_inset Formula $n^{2}$
+\end_inset
+
+ points 
+\begin_inset Formula 
+\[
+\boldsymbol{s}_{ij}^{max}=\mathcal{R}_{ij}^{-1}\boldsymbol{1}_{j}
+\]
+
+\end_inset
+
+; thus, 
+\begin_inset Formula $\boldsymbol{s}_{ij}^{max}=\left(0,\ldots,0,\mathcal{R}_{ij}^{-1},0,\ldots,0\right)$
+\end_inset
+
+ has all 
+\begin_inset Formula $0$
+\end_inset
+
+ components but the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ that is (with an abuse of notation) 
+\begin_inset Formula $s_{ij}^{max}=\mathcal{R}_{ij}^{-1}$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Notice that for a matrix 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{A}\boldsymbol{1}_{j}=\mathcal{A}_{j}$
+\end_inset
+
+ where 
+\begin_inset Formula $\mathcal{A}_{j}$
+\end_inset
+
+ is the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ column of 
+\begin_inset Formula $\mathcal{A}$
+\end_inset
+
+ and that 
+\begin_inset Formula $\boldsymbol{1}_{i}^{T}\mathcal{A}\boldsymbol{1}_{j}=\mathcal{A}_{ij}$
+\end_inset
+
+.
+ Thus, If we define 
+\begin_inset Formula $\mathcal{S}:\mathcal{S}_{ij}=\mathcal{R}_{ij}^{-1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathcal{S}_{ij}=\boldsymbol{1}_{i}^{T}\mathcal{S}\boldsymbol{1}_{j}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+.
+ By construction, 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}_{ij}^{max}=\boldsymbol{1}_{j}$
+\end_inset
+
+.
+ Moreover, the n vectors 
+\begin_inset Formula $\left\{ \boldsymbol{s}_{i1}^{max},\ldots,\boldsymbol{s}_{in}^{max}\right\} $
+\end_inset
+
+ constitute an orthogonal basis in 
+\begin_inset Formula $\mathbb{R}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let's consider the point 
+\begin_inset Formula $\boldsymbol{s}^{max}=\sum_{i}\boldsymbol{s}_{ii}^{max}$
+\end_inset
+
+; if 
+\begin_inset Formula $\mathcal{R}_{ii}>1$
+\end_inset
+
+, this is interior to the domain 
+\begin_inset Formula $\mathbf{0}\leq\mathbf{s}\leq\mathbf{1}$
+\end_inset
+
+.
+ Thus, there are points 
+\begin_inset Formula $\mathbf{s}>\mathbf{s}^{max}$
+\end_inset
+
+; for such points, 
+\begin_inset Formula $\mathcal{R}\mathbf{s}>\mathcal{R}\mathbf{s}^{max}\geq\mathcal{D}\mathbf{s}^{max}=\mathbf{1}$
+\end_inset
+
+where 
+\begin_inset Formula $\mathcal{D}_{ij}=\delta_{ij}\mathcal{R}_{ij}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\mathcal{D}$
+\end_inset
+
+ is the diagonal matrix associated to 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $\boldsymbol{s}^{*}$
+\end_inset
+
+ belongs to the hypercube 
+\begin_inset Formula $0\leq\boldsymbol{s}\leq\boldsymbol{s}^{max}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Let's consider the convex set 
+\begin_inset Formula $\boldsymbol{s}=\sum_{i}\alpha_{i}\boldsymbol{s}_{ii}^{max}=diag\left(\boldsymbol{\alpha}\right)\mathbf{s}^{max}$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum_{i}\alpha_{i}=1$
+\end_inset
+
+; such a set belongs to the hyperplane 
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{s}^{max}=1$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\alpha_{i}\leq1$
+\end_inset
+
+, for such points 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}=\sum_{i}\alpha_{i}\mathcal{R}\boldsymbol{s}_{ii}^{max}=\sum_{i}\alpha_{i}\boldsymbol{1}_{j}<\boldsymbol{1}$
+\end_inset
+
+.
+ Thus, 
+\begin_inset Formula $\boldsymbol{s}^{*}$
+\end_inset
+
+ belongs to the exterior of the plane 
+\begin_inset Formula $\boldsymbol{s}:\boldsymbol{s}\cdot\boldsymbol{s}^{max}>1$
+\end_inset
+
+.
+ In fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Majorants-and-minorants"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ we show an example in 
+\begin_inset Formula $n=2$
+\end_inset
+
+ dimensions.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename majmin2d.jpg
+	lyxscale 30
+	width 70col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Majorants and minorants
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Majorants-and-minorants"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Solution in n dimensions
+\end_layout
+
+\begin_layout Standard
+Let's consider the convex set 
+\begin_inset Formula $\boldsymbol{s}=\sum_{i}\alpha_{i}\boldsymbol{s}_{ij}^{max}$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum_{i}\alpha_{i}=1$
+\end_inset
+
+; such a set belongs to the hyperplane 
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\theta}^{j}=1$
+\end_inset
+
+ where we have defined 
+\begin_inset Formula $\boldsymbol{\theta}^{j}=\sum_{i}\boldsymbol{s}_{ij}^{max}$
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $\alpha_{i}\leq1$
+\end_inset
+
+, for such points 
+\begin_inset Formula $\left(\mathcal{R}\boldsymbol{s}\right)_{j}=\left(\sum_{i}\alpha_{i}\mathcal{R}\boldsymbol{s}_{ij}^{max}\right)_{j}=\left(\sum_{i}\alpha_{i}\boldsymbol{1}_{j}\right)_{j}=1$
+\end_inset
+
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+More esplicit calculation: 
+\begin_inset Formula $\left(\mathcal{R}\boldsymbol{s}\right)_{j}=\sum_{i}\alpha_{i}\sum_{k}\mathcal{R}_{ik}\left(\boldsymbol{s}_{ij}^{max}\right)_{k}=\sum_{i}\alpha_{k}=1$
+\end_inset
+
+, since 
+\begin_inset Formula $\sum_{k}\mathcal{R}_{ik}\left(\boldsymbol{s}_{ij}^{max}\right)_{k}=\sum_{k}\mathcal{R}_{ik}\mathcal{R}_{ij}^{-1}\delta_{jk}$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+; thus, this plane separate the points where the 
+\begin_inset Formula $j^{th}$
+\end_inset
+
+ component of the SIR model is unstable (i.e.
+ when 
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\mu}^{j}>1$
+\end_inset
+
+, 
+\begin_inset Formula $\partial_{t}i_{j}>0$
+\end_inset
+
+ and 
+\begin_inset Formula $i_{j}$
+\end_inset
+
+ reaches a maximum on 
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\mu}^{j}=1$
+\end_inset
+
+).
+ Thus, 
+\begin_inset Formula $\boldsymbol{s}^{*}$
+\end_inset
+
+ belongs to the set 
+\begin_inset Formula $\Theta^{j}=\left\{ \boldsymbol{s}:\boldsymbol{s}\cdot\boldsymbol{\theta}^{j}\leq1\right\} $
+\end_inset
+
+.
+ Moreover, at the intersection 
+\begin_inset Formula $\bigcap_{j}\Theta^{j}$
+\end_inset
+
+ I have that 
+\begin_inset Formula $\forall j\left(\mathcal{R}\boldsymbol{s}\right)_{j}=1$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}=\boldsymbol{1}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\boldsymbol{s}^{*}\in\bigcap_{j}\Theta^{j}$
+\end_inset
+
+; if 
+\begin_inset Formula $\mathcal{R}$
+\end_inset
+
+ is invertible, 
+\begin_inset Formula $\bigcap_{j}\Theta^{j}=\left\{ \boldsymbol{s}^{*}\right\} $
+\end_inset
+
+.
+ See fig.
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Stability-boundaries"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for an example in 
+\begin_inset Formula $n=2$
+\end_inset
+
+ dimensions.
+ Notice that in 
+\begin_inset Formula $n=2$
+\end_inset
+
+ dimensions I have 
+\begin_inset Formula $2^{n}=4$
+\end_inset
+
+ convex sets:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\theta}^{1}<1,\boldsymbol{s}\cdot\boldsymbol{\theta}^{2}<1$
+\end_inset
+
+ corresponding to the stable set 
+\begin_inset Formula $\partial_{t}i_{1}<0,\partial_{t}i_{2}<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\theta}^{1}>1,\boldsymbol{s}\cdot\boldsymbol{\theta}^{2}<1$
+\end_inset
+
+ corresponding to the 
+\begin_inset Formula $s_{1}$
+\end_inset
+
+-unstable/
+\begin_inset Formula $s_{2}$
+\end_inset
+
+-stable set 
+\begin_inset Formula $\partial_{t}i_{1}>0,\partial_{t}i_{2}<0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\theta}^{1}<1,\boldsymbol{s}\cdot\boldsymbol{\theta}^{2}>1$
+\end_inset
+
+ corresponding to the 
+\begin_inset Formula $s_{2}$
+\end_inset
+
+-unstable/
+\begin_inset Formula $s_{1}$
+\end_inset
+
+-stable set 
+\begin_inset Formula $\partial_{t}i_{1}<0,\partial_{t}i_{2}>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $\boldsymbol{s}\cdot\boldsymbol{\theta}^{1}>1,\boldsymbol{s}\cdot\boldsymbol{\theta}^{2}>1$
+\end_inset
+
+ corresponding to the unstable set 
+\begin_inset Formula $\partial_{t}i_{1}>0,\partial_{t}i_{2}>0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In general, there will be 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ sets corresponding to the possible stable/unstable combinations.
+ 
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Probably useless: let 
+\begin_inset Formula $\chi\in\left\{ 0,1\right\} ^{n}$
+\end_inset
+
+and associate to it the set 
+\begin_inset Formula $\Phi^{\chi}$
+\end_inset
+
+ such that 
+\begin_inset Formula $\partial_{t}i_{k}<0$
+\end_inset
+
+ if 
+\begin_inset Formula $\chi_{k}=1$
+\end_inset
+
+, 
+\begin_inset Formula $\partial_{t}i_{k}>0$
+\end_inset
+
+ otherwise, i.e.
+ 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Formula 
+\[
+\Phi^{\chi}=\bigcap_{k:\chi_{k}=1}\Theta^{k}
+\]
+
+\end_inset
+
+; thus, we have that to 
+\begin_inset Formula $\Phi^{\boldsymbol{1}}$
+\end_inset
+
+ is the stable set, that for 
+\begin_inset Formula $\boldsymbol{0}<\chi<\boldsymbol{1}$
+\end_inset
+
+ 
+\begin_inset Formula $\Phi^{\chi}$
+\end_inset
+
+ is a set with at least 
+\begin_inset Formula $\sum_{k}\chi_{k}$
+\end_inset
+
+ stable directions and by convention we associate to 
+\begin_inset Formula $\chi=\boldsymbol{0}$
+\end_inset
+
+ the set 
+\begin_inset Formula 
+\[
+\Phi^{\boldsymbol{0}}=\Psi-\bigcup_{\chi<\boldsymbol{1}}\Phi^{\chi}
+\]
+
+\end_inset
+
+where we indicate with 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ the whole orthant 
+\begin_inset Formula $\boldsymbol{0}<\boldsymbol{s}<\boldsymbol{1}$
+\end_inset
+
+.
+ For such sets, we have that 
+\begin_inset Formula $\chi_{A}<\chi_{B}\to\Phi^{\chi_{A}}\subset\Phi^{\chi_{B}}$
+\end_inset
+
+; also, the number of 
+\begin_inset Quotes eld
+\end_inset
+
+unstable
+\begin_inset Quotes erd
+\end_inset
+
+ directions is an instability index 
+\begin_inset Formula $u_{\chi}=\sum_{k}\chi_{k}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename crit2d.jpg
+	lyxscale 30
+	width 70col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Stability boundaries
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Stability-boundaries"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
