@@ -1227,5 +1227,225 @@ name "fig:Stability-boundaries"
 
 \end_layout
 
+\begin_layout Standard
+Let 
+\begin_inset Formula $\boldsymbol{k}\subseteq\mathcal{N}$
+\end_inset
+
+ be a set of indexes of 
+\begin_inset Formula $\mathcal{N}=\left\{ 1\ldots n\right\} $
+\end_inset
+
+ and let define the 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ matrices 
+\begin_inset Formula $\mathcal{R}^{\boldsymbol{k}}$
+\end_inset
+
+ such that
+\begin_inset Formula 
+\[
+\left[\mathcal{R}^{\left(\boldsymbol{k}\right)}\right]_{ij}=\begin{cases}
+0 & i\in\boldsymbol{k}\vee j\in\boldsymbol{k}\\
+\mathcal{R}_{ij} & \textrm{otherwhise}
+\end{cases}
+\]
+
+\end_inset
+
+; also, let also define for a vector 
+\begin_inset Formula $\boldsymbol{v}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\left[\boldsymbol{v}^{\left(\boldsymbol{k}\right)}\right]_{i}=\begin{cases}
+0 & i\in\boldsymbol{k}\\
+v & otherwhise
+\end{cases}
+\]
+
+\end_inset
+
+i.e.
+ the operator 
+\begin_inset Formula $\_^{\left(\boldsymbol{k}\right)}$
+\end_inset
+
+ sets applied to a tensor 
+\begin_inset Formula $\mathcal{T}_{i_{1}i_{2}...}$
+\end_inset
+
+ sets to zero all the components that have an index in 
+\begin_inset Formula $\boldsymbol{k}$
+\end_inset
+
+.
+ I can then construct the 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ vertices of the boundary of the convex polytope 
+\begin_inset Formula $0\leq\mathcal{R}\boldsymbol{s}\leq\boldsymbol{1}$
+\end_inset
+
+by solving the 
+\begin_inset Formula $2^{n}$
+\end_inset
+
+ systems
+\begin_inset Formula 
+\[
+\mathcal{R}^{\left(\boldsymbol{k}\right)}\boldsymbol{s}=\boldsymbol{1}^{\left(\boldsymbol{k}\right)}
+\]
+
+\end_inset
+
+i.e.
+\begin_inset Formula 
+\[
+\boldsymbol{s}^{\boldsymbol{k}}=\left[\mathcal{R}^{\left(\boldsymbol{k}\right)}\right]^{+}\boldsymbol{1}
+\]
+
+\end_inset
+
+where we indicate with 
+\begin_inset Formula $A^{+}$
+\end_inset
+
+ the pseudo-inverse of 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Notice that the properties of the pseudo-inverse ensure that 
+\begin_inset Formula $\boldsymbol{s}^{\boldsymbol{k}}=\left(\boldsymbol{s}^{\boldsymbol{k}}\right)^{(\boldsymbol{k})}$
+\end_inset
+
+, i.e.
+ all the components of 
+\begin_inset Formula $\boldsymbol{s}^{\boldsymbol{k}}$
+\end_inset
+
+ with index in 
+\begin_inset Formula $\boldsymbol{k}$
+\end_inset
+
+ are zero.
+ Notice that 
+\begin_inset Formula $\boldsymbol{s}^{\emptyset}=\boldsymbol{s}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $\boldsymbol{s}^{\mathcal{N}}=\boldsymbol{0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Thus, the linear programming problem
+\begin_inset Formula 
+\[
+\begin{array}{cc}
+{\displaystyle \max}\boldsymbol{\mu}\cdot\boldsymbol{s}\\
+s.t. & 0\leq\mathcal{R}\boldsymbol{s}\leq\boldsymbol{1}
+\end{array}
+\]
+
+\end_inset
+
+will have solutions on the vertices 
+\begin_inset Formula $\left\{ \boldsymbol{s}^{\boldsymbol{k}}\right\} $
+\end_inset
+
+.
+ However, in 
+\begin_inset Quotes eld
+\end_inset
+
+normal
+\begin_inset Quotes erd
+\end_inset
+
+ cases I will have to choose among 
+\begin_inset Formula $\boldsymbol{s}^{\emptyset}$
+\end_inset
+
+ and its 
+\begin_inset Formula $n$
+\end_inset
+
+ neighbours 
+\begin_inset Formula $\boldsymbol{s}^{\left\{ 1\right\} },\ldots,\boldsymbol{s}^{\left\{ n\right\} }$
+\end_inset
+
+, then eventually among their 
+\begin_inset Formula $n(n-1)/2$
+\end_inset
+
+ neighbours 
+\begin_inset Formula $\boldsymbol{s}^{\left\{ 1,2\right\} },\boldsymbol{s}^{\left\{ 1,3\right\} },\boldsymbol{s}^{\left\{ 1,4\right\} },\ldots,\boldsymbol{s}^{\left\{ n-1,n\right\} }$
+\end_inset
+
+ and so on.
+ Remember that the vertices 
+\begin_inset Formula $\left\{ \boldsymbol{s}^{\boldsymbol{k}}\right\} $
+\end_inset
+
+ form a lattice where two point are adjacent if and only if their indicating
+ sets 
+\begin_inset Formula $\boldsymbol{k},\boldsymbol{k}'$
+\end_inset
+
+ differ by just one index.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Border3d.jpg
+	lyxscale 30
+	width 70col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Border in 3d
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Border3d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \end_body
 \end_document
