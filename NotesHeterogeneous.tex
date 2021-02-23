@@ -3,12 +3,171 @@
 \documentclass[english]{article}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
-\usepackage{amsbsy}
-\usepackage{amstext}
+\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{babel}
 \begin{document}
+
+\section{SIR}
+
+Let $B_{ij}=\beta_{ij}C_{ij}$ where $C_{ij}$ is the contact matrix.
+Heterogeneous $SIR$ model: 
+\[
+\partial_{t}S_{i}=-S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}
+\]
+
+\[
+\partial_{t}I_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}
+\]
+
+\[
+\partial_{t}R_{i}=\gamma_{i}I_{i}
+\]
+
+
+\subsection{Trajectories}
+
+I can rewrite
+
+\[
+\partial_{t}\ln S_{i}=-\sum_{j}\frac{B_{ij}}{\gamma_{j}N_{j}}\partial_{t}R_{j}
+\]
+
+i.e. by indicating $Y_{i}=\ln S_{i}$
+\[
+\partial_{t}\boldsymbol{Y}=-B\,diag(\boldsymbol{\gamma}\odot\boldsymbol{N})^{-1}\partial_{t}\boldsymbol{R}
+\]
+or
+\[
+\frac{\partial_{t}s_{i}}{s_{i}}=-\mathcal{R}_{0}\partial_{t}r
+\]
+where we have indicated with $\mathcal{R}_{0}$ the reproduction number
+matrix
+\[
+\left[\mathcal{R}_{0}\right]_{ij}=\frac{B_{ij}}{\gamma_{j}}
+\]
+i.e. $\mathcal{R}_{0}=B\,diag(\mathbf{\gamma})^{-1}$.
+
+\subsection{End-of-epidemics boundary}
+
+The end-of-epidemic boundary (EOF) corresponds to the $\boldsymbol{I}=\boldsymbol{0}$
+boundary $\boldsymbol{S}+\boldsymbol{R}=\boldsymbol{1}$, i.e
+\[
+\boldsymbol{Y}=\ln\left(\boldsymbol{1}-\boldsymbol{R}\right)
+\]
+that is strictly concave
+
+\subsection{Herd immunity threshold}
+
+The condition $\partial_{t}I<0$, where $I=\sum_{i}I_{i}$, is the
+one we are looking for. 
+\[
+\partial_{t}I=\sum_{i}\left(S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}\right)=\left(\sum_{ij}S_{i}\frac{B_{ij}}{N_{j}}I_{j}-\sum_{j}\gamma_{j}I_{j}\right)=\sum_{j}\gamma_{j}I_{j}\left(\sum_{i}S_{i}\frac{B_{ij}}{\gamma_{j}N_{j}}-1\right)
+\]
+. Since $I_{i}\geq0$, then $\partial_{t}I<0$ irrespectively of the
+values of the $I_{i}$ if 
+\[
+\forall j\ \,\,\,\sum_{i}S_{i}\frac{B_{ij}}{\gamma_{j}N_{j}}<1
+\]
+that can be written as 
+\[
+diag(\mathcal{N}\odot\mathcal{\gamma})^{-1}\,B^{T}\boldsymbol{S}<\boldsymbol{1}
+\]
+or 
+\[
+\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}
+\]
+where $\widehat{\mathcal{R}_{0}}=diag(\boldsymbol{N})\,\mathcal{R}_{0}\,diag(\boldsymbol{N})^{-1}$
+and $\mathcal{R}_{0}=B\,diag(\boldsymbol{\gamma})^{-1}$ is the basic
+reproduction number matrix.
+
+Notice that the condition $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}>\boldsymbol{1}$
+also imposes that $\partial_{t}I>0$ irrespectively of the values
+of the $I_{i}$. In the region where strict inequalities do not apply,
+things can vary.
+
+The surface $\mathcal{S}^{*}=\left\{ \boldsymbol{s}:\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}=\boldsymbol{1}\right\} $
+plays the role of the herd immunity threshold.
+
+\subsection{SEIR }
+
+Heterogeneous $SEIR$ model: 
+\[
+\partial_{t}S_{i}=-S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}
+\]
+
+\[
+\partial_{t}E_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\mu_{i}E_{i}
+\]
+
+\[
+\partial_{t}I_{i}=\mu_{i}E_{i}-\gamma_{i}I_{i}
+\]
+\[
+\partial_{t}R_{i}=\gamma_{i}I_{i}
+\]
+adds the endemic class $E$ corresponding to individuals that have
+been infected but are not infectious yet. Trajectories are still straight
+lines:
+\[
+\partial_{t}\boldsymbol{Y}=-B\,diag(\boldsymbol{\gamma}\odot\boldsymbol{N})^{-1}\partial_{t}\boldsymbol{R}
+\]
+or
+\[
+\frac{\partial_{t}s_{i}}{s_{i}}=-\mathcal{R}_{0}\partial_{t}r
+\]
+. By indicating with $A=E+I$ the number of ``affected'' individuals,
+its evolution has the form
+\[
+\partial_{t}A_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}
+\]
+and the condition that $\partial_{t}A<0$ irrespectively of the number
+$I_{i}$ of infected individuals leads like for SIR to the condition
+\[
+\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}
+\]
+; analogously, $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}$
+implies $\partial_{t}A>0$. The surface $\mathcal{S}^{*}=\left\{ \boldsymbol{s}:\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}=\boldsymbol{1}\right\} $
+plays the role of the herd immunity threshold.
+
+\section{OLD !!!}
+
+``WRONG'' if $B_{ij}$ ``contains'' a contac matrix: Let's consider
+a population of $N$ individuals divided in $n$ classes $\{N_{1},\ldots,N_{k}\}$
+with $\sum_{k}N_{k}=N$. Let $S_{k}$ the number of susceptibles,
+$I_{k}$ the number of infectious, $R_{k}$ the number of recovered;
+SIR equations are 
+\[
+\begin{array}{c}
+\partial_{t}S_{k}=-S_{k}\sum_{l}B_{kl}\frac{I_{l}}{N}\\
+\partial_{t}I_{k}=I_{k}\sum_{l}B_{kl}\frac{S_{l}}{N}-\gamma_{k}I_{k}\\
+\partial_{t}R_{k}=\gamma_{k}I_{k}
+\end{array}
+\]
+; in terms of the fractions $s_{k}=S_{k}/N_{k}$, $i_{k}=I_{k}/N_{k}$,
+$r_{k}=R_{k}/N_{k}$ they can be rewritten as 
+\[
+\begin{array}{c}
+\partial_{t}s_{k}=-s_{k}\sum_{l}\left(B_{kl}\frac{N_{l}}{N}\right)i_{l}\\
+\partial_{t}i_{k}=i_{k}\sum_{l}\left(B_{kl}\frac{N_{l}}{N}s_{l}\right)-\gamma_{k}i_{k}\\
+\partial_{t}r_{k}=\gamma_{k}i_{k}
+\end{array}
+\]
+so that by considering a matrix $\beta_{kl}=B_{kl}n_{k}$ where $n_{k}$
+is the fraction of population in the $k^{th}$ class.
+
+To define stability, let's consider the total number of infected $I=\sum_{k}I_{k}=\sum_{k}N_{k}i_{k}$;
+a boundary point $P$ is stable if 
+\begin{equation}
+\partial_{t}I=\sum_{k}N_{k}\gamma_{k}i_{k}\left(\sum_{l}\mathcal{R}_{kl}s_{l}-1\right)<0\label{eq:i_decreases-1}
+\end{equation}
+i.e. $\mathcal{R}\boldsymbol{s}<\boldsymbol{1}$. 
+
+\[
+\left|x\right|\,\left.\right|
+\]
+
 
 \section{SIR}
 
@@ -180,7 +339,7 @@ In fig.\ref{fig:Majorants-and-minorants} we show an example in $n=2$
 dimensions.
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.7\columnwidth]{majmin2d}
+\includegraphics[width=0.7\columnwidth]{Majmin2d}
 \par\end{centering}
 \caption{Majorants and minorants\label{fig:Majorants-and-minorants}}
 \end{figure}
@@ -235,9 +394,76 @@ $u_{\chi}=\sum_{k}\chi_{k}$. }
 
 \begin{figure}
 \begin{centering}
-\includegraphics[width=0.7\columnwidth]{crit2d}
+\includegraphics[width=0.7\columnwidth]{Crit2d}
 \par\end{centering}
 \caption{Stability boundaries\label{fig:Stability-boundaries}}
 \end{figure}
+
+Let $\boldsymbol{k}\subseteq\mathcal{N}$ be a set of indexes of $\mathcal{N}=\left\{ 1\ldots n\right\} $
+and let define the $2^{n}$ matrices $\mathcal{R}^{\boldsymbol{k}}$
+such that
+\[
+\left[\mathcal{R}^{\left(\boldsymbol{k}\right)}\right]_{ij}=\begin{cases}
+0 & i\in\boldsymbol{k}\vee j\in\boldsymbol{k}\\
+\mathcal{R}_{ij} & \textrm{otherwhise}
+\end{cases}
+\]
+; also, let also define for a vector $\boldsymbol{v}$
+\[
+\left[\boldsymbol{v}^{\left(\boldsymbol{k}\right)}\right]_{i}=\begin{cases}
+0 & i\in\boldsymbol{k}\\
+v & otherwhise
+\end{cases}
+\]
+i.e. the operator $\_^{\left(\boldsymbol{k}\right)}$ sets applied
+to a tensor $\mathcal{T}_{i_{1}i_{2}...}$ sets to zero all the components
+that have an index in $\boldsymbol{k}$. I can then construct the
+$2^{n}$ vertices of the boundary of the convex polytope $0\leq\mathcal{R}\boldsymbol{s}\leq\boldsymbol{1}$by
+solving the $2^{n}$ systems
+\[
+\mathcal{R}^{\left(\boldsymbol{k}\right)}\boldsymbol{s}=\boldsymbol{1}^{\left(\boldsymbol{k}\right)}
+\]
+i.e.
+\[
+\boldsymbol{s}^{\boldsymbol{k}}=\left[\mathcal{R}^{\left(\boldsymbol{k}\right)}\right]^{+}\boldsymbol{1}
+\]
+where we indicate with $A^{+}$ the pseudo-inverse of $A$. Notice
+that the properties of the pseudo-inverse ensure that $\boldsymbol{s}^{\boldsymbol{k}}=\left(\boldsymbol{s}^{\boldsymbol{k}}\right)^{(\boldsymbol{k})}$,
+i.e. all the components of $\boldsymbol{s}^{\boldsymbol{k}}$ with
+index in $\boldsymbol{k}$ are zero. Notice that $\boldsymbol{s}^{\emptyset}=\boldsymbol{s}^{*}$,
+$\boldsymbol{s}^{\mathcal{N}}=\boldsymbol{0}$. 
+
+Thus, the linear programming problem
+\[
+\begin{array}{cc}
+{\displaystyle \max}\boldsymbol{\mu}\cdot\boldsymbol{s}\\
+s.t. & 0\leq\mathcal{R}\boldsymbol{s}\leq\boldsymbol{1}
+\end{array}
+\]
+will have solutions on the vertices $\left\{ \boldsymbol{s}^{\boldsymbol{k}}\right\} $.
+However, in ``normal'' cases I will have to choose among $\boldsymbol{s}^{\emptyset}$
+and its $n$ neighbours $\boldsymbol{s}^{\left\{ 1\right\} },\ldots,\boldsymbol{s}^{\left\{ n\right\} }$,
+then eventually among their $n(n-1)/2$ neighbours $\boldsymbol{s}^{\left\{ 1,2\right\} },\boldsymbol{s}^{\left\{ 1,3\right\} },\boldsymbol{s}^{\left\{ 1,4\right\} },\ldots,\boldsymbol{s}^{\left\{ n-1,n\right\} }$
+and so on. Remember that the vertices $\left\{ \boldsymbol{s}^{\boldsymbol{k}}\right\} $
+form a lattice where two point are adjacent if and only if their indicating
+sets $\boldsymbol{k},\boldsymbol{k}'$ differ by just one index.
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.7\columnwidth]{Border3d}
+\par\end{centering}
+\caption{Border in 3d\label{fig:Border3d}}
+\end{figure}
+
+\begin{figure}
+\begin{centering}
+\includegraphics[width=0.7\columnwidth]{Lattice3d}
+\par\end{centering}
+\caption{Adjacency lattice for border vertices in 3d\label{fig:Lattice3d}}
+\end{figure}
+
+\[
+{\displaystyle \sum_{k}}
+\]
 
 \end{document}

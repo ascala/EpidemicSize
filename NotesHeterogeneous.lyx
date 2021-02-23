@@ -80,6 +80,708 @@ SIR
 \end_layout
 
 \begin_layout Standard
+Let 
+\begin_inset Formula $B_{ij}=\beta_{ij}C_{ij}$
+\end_inset
+
+ where 
+\begin_inset Formula $C_{ij}$
+\end_inset
+
+ is the contact matrix.
+ Heterogeneous 
+\begin_inset Formula $SIR$
+\end_inset
+
+ model: 
+\begin_inset Formula 
+\[
+\partial_{t}S_{i}=-S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}I_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}R_{i}=\gamma_{i}I_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+We indicate with 
+\begin_inset Formula $\boldsymbol{N}$
+\end_inset
+
+the population vector (i.e.
+ 
+\begin_inset Formula $N=\sum_{i}N_{i}$
+\end_inset
+
+, where 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ is the number of people in the 
+\begin_inset Formula $i^{th}$
+\end_inset
+
+ class) and with 
+\begin_inset Formula $\mathcal{N}=diag\left(\boldsymbol{N}\right)$
+\end_inset
+
+ the diagonal matrix 
+\begin_inset Formula $\left[\mathcal{N}\right]_{ij}=\delta_{ij}N_{j}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Trajectories
+\end_layout
+
+\begin_layout Standard
+I can rewrite
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}\ln S_{i}=-\sum_{j}\frac{B_{ij}}{\gamma_{j}N_{j}}\partial_{t}R_{j}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+i.e.
+ by indicating 
+\begin_inset Formula $Y_{i}=\ln S_{i}$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}\boldsymbol{Y}=-B\,diag(\boldsymbol{\gamma}\odot\boldsymbol{N})^{-1}\partial_{t}\boldsymbol{R}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\frac{\partial_{t}s_{i}}{s_{i}}=-\sum_{j}\left[\mathcal{R}_{0}\right]_{ij}\partial_{t}r_{j}
+\]
+
+\end_inset
+
+where we have indicated with 
+\begin_inset Formula $\mathcal{R}_{0}$
+\end_inset
+
+ the reproduction number matrix
+\begin_inset Formula 
+\[
+\left[\mathcal{R}_{0}\right]_{ij}=\frac{B_{ij}}{\gamma_{j}}
+\]
+
+\end_inset
+
+i.e.
+ 
+\begin_inset Formula $\mathcal{R}_{0}=B\,diag(\mathbf{\gamma})^{-1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Notice that the solutions are
+\begin_inset Formula 
+\[
+y_{i}\left(t\right)=y_{i}\left(0\right)-\sum_{j}\left[\mathcal{R}_{0}\right]_{ij}\left(r_{j}\left(t\right)-r_{j}\left(0\right)\right)
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\boldsymbol{y}\left(t\right)=\boldsymbol{y}\left(0\right)-\mathcal{R}_{0}\left(\boldsymbol{r}\left(t\right)-\boldsymbol{r}\left(0\right)\right)
+\]
+
+\end_inset
+
+that since are straight lines can be expressed as function of the initial
+ points and the initial derivatives:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{r}=\boldsymbol{r}\left(0\right)+q\boldsymbol{v}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{y}=\boldsymbol{y}\left(0\right)-q\mathcal{R}_{0}\boldsymbol{v}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{i}=\boldsymbol{1}-\exp\left(\boldsymbol{y}\right)-\boldsymbol{r}=\boldsymbol{1}-\exp\left[\boldsymbol{y}\left(0\right)-\mathcal{R}_{0}\left(\boldsymbol{r}-\boldsymbol{r}\left(0\right)\right)\right]-\boldsymbol{r}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+t\left(q\right)=\int_{\boldsymbol{r}\left(0\right)}^{\boldsymbol{r}\left(q\right)}\frac{d\boldsymbol{r}}{diag\left(\boldsymbol{\gamma}\right)\boldsymbol{i}}
+\]
+
+\end_inset
+
+where everything is determined by the inizial 
+\begin_inset Quotes eld
+\end_inset
+
+shape of the infection
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\begin_inset Formula $\boldsymbol{v}=\left.\partial_{t}\boldsymbol{r}\right|_{t=0}=diag\left(\boldsymbol{\gamma}\right)\left.\boldsymbol{i}\right|_{t=0}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Herd immunity threshold
+\end_layout
+
+\begin_layout Standard
+The condition 
+\begin_inset Formula $\partial_{t}I<0$
+\end_inset
+
+, where 
+\begin_inset Formula $I=\sum_{i}I_{i}$
+\end_inset
+
+, is the one we are looking for.
+ 
+\begin_inset Formula 
+\[
+\partial_{t}I=\sum_{i}\left(S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}\right)=\left(\sum_{ij}S_{i}\frac{B_{ij}}{N_{j}}I_{j}-\sum_{j}\gamma_{j}I_{j}\right)=\sum_{j}\gamma_{j}I_{j}\left(\sum_{i}S_{i}\frac{B_{ij}}{\gamma_{j}N_{j}}-1\right)
+\]
+
+\end_inset
+
+.
+ Since 
+\begin_inset Formula $I_{i}\geq0$
+\end_inset
+
+, then 
+\begin_inset Formula $\partial_{t}I<0$
+\end_inset
+
+ irrespectively of the values of the 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+ if 
+\begin_inset Formula 
+\[
+\forall j\ \,\,\,\sum_{i}S_{i}\frac{B_{ij}}{\gamma_{j}N_{j}}<1
+\]
+
+\end_inset
+
+that can be written as 
+\begin_inset Formula 
+\[
+diag(\mathcal{N}\odot\mathcal{\gamma})^{-1}\,B^{T}\boldsymbol{S}<\boldsymbol{1}
+\]
+
+\end_inset
+
+or 
+\begin_inset Formula 
+\[
+\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}=\mathcal{N}\mathcal{R}_{0}\mathcal{N}^{-1}$
+\end_inset
+
+ and 
+\begin_inset Formula $\mathcal{R}_{0}=B\,diag(\boldsymbol{\gamma})^{-1}$
+\end_inset
+
+ is the basic reproduction number matrix.
+\end_layout
+
+\begin_layout Standard
+Notice that the condition 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}>\boldsymbol{1}$
+\end_inset
+
+ also imposes that 
+\begin_inset Formula $\partial_{t}I>0$
+\end_inset
+
+ irrespectively of the values of the 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+.
+ In the region where strict inequalities do not apply, things can vary.
+\end_layout
+
+\begin_layout Standard
+The surface 
+\begin_inset Formula $\mathcal{S}^{*}=\left\{ \boldsymbol{s}:\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}=\boldsymbol{1}\right\} $
+\end_inset
+
+ plays the role of the herd immunity threshold.
+\end_layout
+
+\begin_layout Subsection
+End-of-epidemics boundary
+\end_layout
+
+\begin_layout Standard
+The end-of-epidemic boundary (EOF) corresponds to the 
+\begin_inset Formula $\boldsymbol{I}=\boldsymbol{0}$
+\end_inset
+
+ boundary 
+\begin_inset Formula $\boldsymbol{s}+\boldsymbol{r}=\boldsymbol{1}$
+\end_inset
+
+, i.e
+\begin_inset Formula 
+\[
+\boldsymbol{y}=\ln\left(\boldsymbol{1}-\boldsymbol{r}\right)
+\]
+
+\end_inset
+
+that is strictly concave.
+ To find the intersection point, one has to move along the direction 
+\begin_inset Formula $\boldsymbol{v}=\left.\partial_{t}\boldsymbol{r}\right|_{t=0}=diag\left(\boldsymbol{\gamma}\right)\left.\boldsymbol{i}\right|_{t=0}$
+\end_inset
+
+: 
+\begin_inset Formula 
+\[
+\boldsymbol{r}=\boldsymbol{r}\left(0\right)+q\boldsymbol{v}
+\]
+
+\end_inset
+
+until 
+\begin_inset Formula $\boldsymbol{s}\left(q\right)=\boldsymbol{s}\left(0\right)-q\mathcal{R}_{0}\boldsymbol{v}$
+\end_inset
+
+ hits he boundary
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\ln\left(\boldsymbol{s}\left(0\right)\right)-q\mathcal{R}_{0}\boldsymbol{v}=\ln\left(\boldsymbol{1}-\boldsymbol{r}\left(0\right)-q\boldsymbol{v}\right)
+\]
+
+\end_inset
+
+or
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\boldsymbol{s}\left(0\right)\exp\left(-q\mathcal{R}_{0}\boldsymbol{v}\right)=\boldsymbol{1}-\boldsymbol{r}\left(0\right)-q\boldsymbol{v}
+\]
+
+\end_inset
+
+that is a system that must always have solutions if there is an epidemics.
+ Notice that 
+\begin_inset Formula $\boldsymbol{s}\left(0\right)+\boldsymbol{r}\left(0\right)=\boldsymbol{1}-\left.\boldsymbol{i}\right|_{t=0}<\boldsymbol{1}$
+\end_inset
+
+ but 
+\begin_inset Formula $\partial_{t}I>0$
+\end_inset
+
+ (since we are assuming an epidemic).
+ In the limit 
+\begin_inset Formula $\left.\boldsymbol{i}\right|_{t=0}\to\boldsymbol{0}$
+\end_inset
+
+, this corresponds to (see herd immunity threshold) to 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}\left(0\right)>\boldsymbol{1}$
+\end_inset
+
+.
+ PROBABLY THIS CORRESPONDS TO THE CONDITIONS NECESSARY TO INTERSECT THE
+ BOUNDARY 
+\begin_inset Formula $\mathcal{S}^{*}$
+\end_inset
+
+ AGAIN ...
+ I.E.
+ TO THE CONDITIONS OF STARTING 
+\begin_inset Quotes eld
+\end_inset
+
+INSIDE
+\begin_inset Quotes erd
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+JUST TRYING: 
+\begin_inset Formula $\boldsymbol{s}\left(q\right)+\boldsymbol{r}\left(q\right)$
+\end_inset
+
+ decreases until 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}\left(q\right)=\boldsymbol{1}$
+\end_inset
+
+, i.e.
+ 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\exp\left(\ln\boldsymbol{s}\left(0\right)-q\mathcal{R}_{0}\boldsymbol{v}\right)=\boldsymbol{1}$
+\end_inset
+
+ i.e.
+ 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}\left(0\right)\exp\left(-q\mathcal{R}_{0}\boldsymbol{v}\right)=\boldsymbol{1}$
+\end_inset
+
+ .
+ 
+\end_layout
+
+\begin_layout Section
+SEIR 
+\end_layout
+
+\begin_layout Standard
+Heterogeneous 
+\begin_inset Formula $SEIR$
+\end_inset
+
+ model: 
+\begin_inset Formula 
+\[
+\partial_{t}S_{i}=-S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}E_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\mu_{i}E_{i}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\partial_{t}I_{i}=\mu_{i}E_{i}-\gamma_{i}I_{i}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\partial_{t}R_{i}=\gamma_{i}I_{i}
+\]
+
+\end_inset
+
+adds the endemic class 
+\begin_inset Formula $E$
+\end_inset
+
+ corresponding to individuals that have been infected but are not infectious
+ yet.
+ Trajectories are still straight lines:
+\begin_inset Formula 
+\[
+\partial_{t}\boldsymbol{Y}=-B\,diag(\boldsymbol{\gamma}\odot\boldsymbol{N})^{-1}\partial_{t}\boldsymbol{R}
+\]
+
+\end_inset
+
+or
+\begin_inset Formula 
+\[
+\frac{\partial_{t}s_{i}}{s_{i}}=-\sum_{j}\left[\mathcal{R}_{0}\right]_{ij}\partial_{t}r_{j}
+\]
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+By indicating with 
+\begin_inset Formula $A=E+I$
+\end_inset
+
+ the number of 
+\begin_inset Quotes eld
+\end_inset
+
+affected
+\begin_inset Quotes erd
+\end_inset
+
+ individuals, its evolution has the form
+\begin_inset Formula 
+\[
+\partial_{t}A_{i}=S_{i}\sum_{j}B_{ij}\frac{I_{j}}{N_{j}}-\gamma_{i}I_{i}
+\]
+
+\end_inset
+
+and the condition that 
+\begin_inset Formula $\partial_{t}A<0$
+\end_inset
+
+ irrespectively of the number 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+ of infected individuals leads like for SIR to the condition 
+\begin_inset Formula 
+\[
+\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}
+\]
+
+\end_inset
+
+; analogously, 
+\begin_inset Formula $\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}<\boldsymbol{1}$
+\end_inset
+
+ implies 
+\begin_inset Formula $\partial_{t}A>0$
+\end_inset
+
+.
+ The surface 
+\begin_inset Formula $\mathcal{S}^{*}=\left\{ \boldsymbol{s}:\widehat{\mathcal{R}_{0}}^{T}\boldsymbol{s}=\boldsymbol{1}\right\} $
+\end_inset
+
+ plays the role of the herd immunity threshold.
+\end_layout
+
+\begin_layout Section
+OLD !!!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Quotes eld
+\end_inset
+
+WRONG
+\begin_inset Quotes erd
+\end_inset
+
+ if 
+\begin_inset Formula $B_{ij}$
+\end_inset
+
+ 
+\begin_inset Quotes eld
+\end_inset
+
+contains
+\begin_inset Quotes erd
+\end_inset
+
+ a contac matrix: Let's consider a population of 
+\begin_inset Formula $N$
+\end_inset
+
+ individuals divided in 
+\begin_inset Formula $n$
+\end_inset
+
+ classes 
+\begin_inset Formula $\{N_{1},\ldots,N_{k}\}$
+\end_inset
+
+ with 
+\begin_inset Formula $\sum_{k}N_{k}=N$
+\end_inset
+
+.
+ Let 
+\begin_inset Formula $S_{k}$
+\end_inset
+
+ the number of susceptibles, 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ the number of infectious, 
+\begin_inset Formula $R_{k}$
+\end_inset
+
+ the number of recovered; SIR equations are 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\partial_{t}S_{k}=-S_{k}\sum_{l}B_{kl}\frac{I_{l}}{N}\\
+\partial_{t}I_{k}=I_{k}\sum_{l}B_{kl}\frac{S_{l}}{N}-\gamma_{k}I_{k}\\
+\partial_{t}R_{k}=\gamma_{k}I_{k}
+\end{array}
+\]
+
+\end_inset
+
+; in terms of the fractions 
+\begin_inset Formula $s_{k}=S_{k}/N_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $i_{k}=I_{k}/N_{k}$
+\end_inset
+
+, 
+\begin_inset Formula $r_{k}=R_{k}/N_{k}$
+\end_inset
+
+ they can be rewritten as 
+\begin_inset Formula 
+\[
+\begin{array}{c}
+\partial_{t}s_{k}=-s_{k}\sum_{l}\left(B_{kl}\frac{N_{l}}{N}\right)i_{l}\\
+\partial_{t}i_{k}=i_{k}\sum_{l}\left(B_{kl}\frac{N_{l}}{N}s_{l}\right)-\gamma_{k}i_{k}\\
+\partial_{t}r_{k}=\gamma_{k}i_{k}
+\end{array}
+\]
+
+\end_inset
+
+so that by considering a matrix 
+\begin_inset Formula $\beta_{kl}=B_{kl}n_{k}$
+\end_inset
+
+ where 
+\begin_inset Formula $n_{k}$
+\end_inset
+
+ is the fraction of population in the 
+\begin_inset Formula $k^{th}$
+\end_inset
+
+ class.
+\end_layout
+
+\begin_layout Standard
+To define stability, let's consider the total number of infected 
+\begin_inset Formula $I=\sum_{k}I_{k}=\sum_{k}N_{k}i_{k}$
+\end_inset
+
+; a boundary point 
+\begin_inset Formula $P$
+\end_inset
+
+ is stable if 
+\begin_inset Formula 
+\begin{equation}
+\partial_{t}I=\sum_{k}N_{k}\gamma_{k}i_{k}\left(\sum_{l}\mathcal{R}_{kl}s_{l}-1\right)<0\label{eq:i_decreases-1}
+\end{equation}
+
+\end_inset
+
+i.e.
+ 
+\begin_inset Formula $\mathcal{R}\boldsymbol{s}<\boldsymbol{1}$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left|x\right|\,\left.\right|
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+SIR
+\end_layout
+
+\begin_layout Standard
 Let's consider 
 \begin_inset Formula $n$
 \end_inset
@@ -855,8 +1557,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename majmin2d.jpg
-	lyxscale 30
+	filename Majmin2d.jpg
+	lyxscale 20
 	width 70col%
 
 \end_inset
@@ -1194,8 +1896,8 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename crit2d.jpg
-	lyxscale 30
+	filename Crit2d.jpg
+	lyxscale 20
 	width 70col%
 
 \end_inset
@@ -1415,7 +2117,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Border3d.jpg
-	lyxscale 30
+	lyxscale 20
 	width 70col%
 
 \end_inset
@@ -1441,6 +2143,59 @@ name "fig:Border3d"
 
 
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename Lattice3d.jpg
+	lyxscale 20
+	width 70col%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Adjacency lattice for border vertices in 3d
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Lattice3d"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+{\displaystyle \sum_{k}}
+\]
 
 \end_inset
 
