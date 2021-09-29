@@ -44,9 +44,40 @@ N(2)=sum(Nit(2:6)); %  M iddle (20-69)
 N(3)=sum(Nit(7:8)); %  E lderly (70+)
 n=N/sum(N); %fraction of population per age class
 
+% CORRECT K TO BE USED WITH s+i+r=1 FRACTIONS
+K=diag(N)*K*diag(1./N); K=K';
+
 
 Rnot=3.0; % basic reproduction number
-R=Rnot*K/norm(K); % next generation matrix
+R=Rnot*K/norm(K); % next generation matrix (since gamma=1)
+
+
+
+
+%eff=0.90; vv=0.64:0.01:1.0;
+%eff=0.85; vv=0.64:0.01:1.0;
+%eff=0.80; vv=0.64:0.01:1.0;
+%eff=0.75; vv=0.64:0.01:1.0;
+eff=0.75; vv=0.7:0.01:1.0;
+
+k=0;
+for v=vv
+    [smin,rmin,FVAL,EXITFLAG] = MinMortality(d,mu,n,R,eff,v);
+    k=k+1; 
+    n1(k)=rmin(1); 
+    n2(k)=rmin(2); 
+    n3(k)=rmin(3);
+    m(k)=(n.*smin')*mu*100;
+    
+%    [ eff*R*diag(rmin) R-1 eff*R*diag(rmin)>R-1]
+%    pause
+end
+
+figure(1);
+subplot(2,2,1)
+plot(vv,n3,'r',vv,n2,'b',vv,n1,'g')
+subplot(2,2,2)
+plot(vv,m,'m')
 
 
 % calculate the lattice of extreme points
@@ -61,7 +92,7 @@ R3=R; R3(:,[3])=0; R3([3],:)=0; s3=pinv(R3)*u;
 R12=R; R12(:,[1 2])=0; R12([1 2],:)=0; s12=pinv(R12)*u;
 R23=R; R23(:,[2 3])=0; R23([2 3],:)=0; s23=pinv(R23)*u;
 R13=R; R13(:,[1 3])=0; R13([1 3],:)=0; s13=pinv(R13)*u;
-% figure(1); 
+% figure(3); 
 % 
 % A=[s12 s1 s2]; fill3(A(1,:),A(2,:),A(3,:),'g'); hold on
 % A=[s23 s2 s3]; fill3(A(1,:),A(2,:),A(3,:),'g'); hold on
@@ -70,22 +101,3 @@ R13=R; R13(:,[1 3])=0; R13([1 3],:)=0; s13=pinv(R13)*u;
 % A=[s s1 s2]; fill3(A(1,:),A(2,:),A(3,:),'r'); hold on
 % A=[s s1 s3]; fill3(A(1,:),A(2,:),A(3,:),'r'); hold on
 % A=[s s2 s3]; fill3(A(1,:),A(2,:),A(3,:),'r'); hold on
-
-
-eff=0.75; vv=0.7:0.01:1.0;
-
-k=0;
-for v=vv
-    [smin,rmin,FVAL,EXITFLAG] = MinMortality(d,mu,n,R,eff,v);
-    k=k+1; 
-    n1(k)=rmin(1); 
-    n2(k)=rmin(2); 
-    n3(k)=rmin(3);
-    m(k)=(n.*smin')*mu*100;
-end
-
-figure(2);
-subplot(2,1,1)
-plot(vv,n3,'r',vv,n2,'b',vv,n1,'g')
-subplot(2,1,2)
-plot(vv,m,'m')
