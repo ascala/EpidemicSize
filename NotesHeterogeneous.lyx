@@ -2117,7 +2117,7 @@ status open
 \align center
 \begin_inset Graphics
 	filename Border3d.jpg
-	lyxscale 20
+	lyxscale 80
 	width 70col%
 
 \end_inset
