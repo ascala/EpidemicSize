@@ -94,9 +94,9 @@ syz=[R(1,1)\1;0;0]; szx=[0;R(2,2)\1;0]; sxy=[0;0;R(3,3)\1];
 %%% fill3 is only defined in MATLAB !!!
 if not( exist ("OCTAVE_VERSION", "builtin") ) % not running octave
     figure(2)
-    A=[s sx sxy sy]; fill3(A(1,:),A(2,:),A(3,:),'r'); hold on
-    A=[s sz szx sx]; fill3(A(1,:),A(2,:),A(3,:),'b'); 
-    A=[s sy syz sz]; fill3(A(1,:),A(2,:),A(3,:),'g'); 
+    A=[s0 sx sxy sy]; fill3(A(1,:),A(2,:),A(3,:),'r'); hold on
+    A=[s0 sz szx sx]; fill3(A(1,:),A(2,:),A(3,:),'b'); 
+    A=[s0 sy syz sz]; fill3(A(1,:),A(2,:),A(3,:),'g'); 
     hold off
     axis([0 1 0 1 0 1])
 end
